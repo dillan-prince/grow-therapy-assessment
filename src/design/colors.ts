@@ -5,7 +5,8 @@ export const neutral = {
   
   500: "#A7AAAB",
   600: "#737680",
-  900: "#05090d"
+  900: "#05090d",
+  1000: "#000000"
 }
 
 export const green = {

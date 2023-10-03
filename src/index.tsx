@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "@fontsource/lora";
+import "@fontsource/poppins";
 import "./index.css";
 
 const root = ReactDOM.createRoot(
