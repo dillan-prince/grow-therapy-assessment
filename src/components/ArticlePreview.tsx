@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { neutral } from "../design/colors";
+import { black, neutral } from "../design/colors";
 import { FlexBox } from "../design/styles";
 
 export type ArticlePreviewProps = {
@@ -12,11 +12,13 @@ const ArticlePreview = ({ index, name, views }: ArticlePreviewProps) => {
   return (
     <FlexBox
       sx={{
+        boxSizing: "border-box",
         padding: "1.5rem",
         gap: "1.25rem",
         borderRadius: "0.75rem",
         border: `1px solid ${neutral[300]}`,
         alignItems: "center",
+        height: "72px",
       }}
     >
       <Typography
@@ -38,7 +40,7 @@ const ArticlePreview = ({ index, name, views }: ArticlePreviewProps) => {
           fontSize: "1rem",
           fontWeight: 500,
           lineHeight: "1.5rem",
-          color: neutral[1000],
+          color: black,
         }}
       >
         {name}

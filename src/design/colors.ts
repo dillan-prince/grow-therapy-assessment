@@ -1,12 +1,13 @@
+export const white = "#fff";
+export const black = "#000"
+
 export const neutral = {
-  0: "#FFFFFF",
   200: "#F5F7F7",
   300: "#E7EAEB",
-  
+  400: "#D4D8D9",
   500: "#A7AAAB",
   600: "#737680",
   900: "#05090d",
-  1000: "#000000"
 }
 
 export const green = {

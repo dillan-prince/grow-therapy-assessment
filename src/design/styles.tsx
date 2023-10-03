@@ -1,5 +1,4 @@
 import { Box, Container, Typography, styled } from "@mui/material";
-import { NAVBAR_HEIGHT } from "../components/Navbar";
 import { neutral } from "./colors";
 
 export const Content = styled(Container)({
@@ -10,7 +9,6 @@ export const Content = styled(Container)({
   flexDirection: "column",
   justifyContent: "center",
   gap: "2.5rem",
-  height: `calc(100% - ${NAVBAR_HEIGHT})`,
 });
 
 export const Header = styled(Typography)({
