@@ -19,11 +19,11 @@ const Results = () => {
       }}
     >
       {results
-        .slice(page * resultsSize, (page + 1) * resultsSize)
-        .map(({ article, views }, index) => (
+        .slice((page - 1) * resultsSize, page * resultsSize)
+        .map(({ article, views, rank }, index) => (
           <ArticlePreview
             key={index}
-            index={index + 1}
+            index={rank}
             name={article}
             views={views}
           />

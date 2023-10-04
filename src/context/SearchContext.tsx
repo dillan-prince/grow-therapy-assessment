@@ -40,7 +40,7 @@ const SearchContext = createContext<SearchContextType>({
 export const SearchContextProvider = ({ children }: PropsWithChildren<{}>) => {
   const [date, setDate] = useState<Dayjs | null>(getYesterday());
   const [resultsSize, setResultsSize] = useState<number>(DEFAULT_RESULTS_SIZE);
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const [results, setResults] = useState<Result[]>([]);
 
   const search = async () => {

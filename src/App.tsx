@@ -1,5 +1,10 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { Box, CssBaseline } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -12,7 +17,7 @@ import { SearchContextProvider } from "./context/SearchContext";
 import { neutral } from "./design/colors";
 import { Content, FlexBox, Header } from "./design/styles";
 
-library.add(faChevronUp, faChevronDown);
+library.add(faChevronUp, faChevronDown, faChevronLeft, faChevronRight);
 
 function App() {
   return (
