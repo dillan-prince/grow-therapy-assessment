@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Container, Typography, styled } from "@mui/material";
 import { neutral } from "./colors";
 
@@ -24,4 +25,15 @@ export const Header = styled(Typography)({
 
 export const FlexBox = styled(Box)({
   display: "flex",
+});
+
+export const Divider = styled(Box)({
+  backgroundColor: neutral[300],
+  width: "1px",
+  height: "4rem",
+});
+
+export const CaretIcon = styled(FontAwesomeIcon)({
+  fontWeight: 400,
+  lineHeight: "0.75rem",
 });

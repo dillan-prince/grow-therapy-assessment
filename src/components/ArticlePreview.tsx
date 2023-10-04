@@ -43,7 +43,7 @@ const ArticlePreview = ({ index, name, views }: ArticlePreviewProps) => {
           color: black,
         }}
       >
-        {name}
+        {name.replaceAll("_", " ")}
       </Typography>
       <Typography
         sx={{
