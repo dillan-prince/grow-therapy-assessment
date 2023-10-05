@@ -46,8 +46,10 @@ const ButtonField = ({
   />
 );
 
-const CalendarHeader = (props: PickersCalendarHeaderProps<Dayjs>) => {
-  console.log(props);
+const CalendarHeader = ({
+  currentMonth,
+  onMonthChange,
+}: PickersCalendarHeaderProps<Dayjs>) => {
   return (
     <FlexBox
       sx={{
@@ -60,10 +62,7 @@ const CalendarHeader = (props: PickersCalendarHeaderProps<Dayjs>) => {
         sx={{ width: "1.5rem", height: "1.5rem" }}
         size="small"
         onClick={() =>
-          props.onMonthChange(
-            dayjs(props.currentMonth).add(-1, "month"),
-            "right"
-          )
+          onMonthChange(dayjs(currentMonth).add(-1, "month"), "right")
         }
       >
         <CaretIcon icon="chevron-left" />
@@ -76,13 +75,13 @@ const CalendarHeader = (props: PickersCalendarHeaderProps<Dayjs>) => {
           lineHeight: "1.5rem",
         }}
       >
-        {dayjs(props.currentMonth).format("MMMM YYYY")}
+        {dayjs(currentMonth).format("MMMM YYYY")}
       </Typography>
       <IconButton
         sx={{ width: "1.5rem", height: "1.5rem" }}
         size="small"
         onClick={() =>
-          props.onMonthChange(dayjs(props.currentMonth).add(1, "month"), "left")
+          onMonthChange(dayjs(currentMonth).add(1, "month"), "left")
         }
       >
         <CaretIcon icon="chevron-right" />
@@ -109,10 +108,7 @@ const DatePicker = () => {
               ".Mui-selected": {
                 color: green[500],
                 backgroundColor: ivy[300],
-                "&.Mui-focusVisible": {
-                  backgroundColor: ivy[300],
-                },
-                ":hover": {
+                ":hover, :focus": {
                   backgroundColor: ivy[300],
                 },
               },
@@ -127,6 +123,7 @@ const DatePicker = () => {
         },
       }}
       disableHighlightToday
+      shouldDisableDate={(date) => date > dayjs().add(-1, "day")}
       views={["day"]}
       open={isOpen}
       onClose={() => setIsOpen(false)}

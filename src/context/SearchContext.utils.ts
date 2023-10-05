@@ -10,7 +10,7 @@ export type Result = {
   views: number;
 };
 
-export type SearchResponse = {
+export type SearchByDateResponse = {
   detail?: string;
   items: {
     articles: Result[];
@@ -19,7 +19,7 @@ export type SearchResponse = {
 
 export const getYesterday = () => dayjs().add(-1, "day");
 
-const BASE_URL =
-  "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access";
-export const formatFetchUrl = (date: Dayjs) =>
-  `${BASE_URL}/${date.format("YYYY/MM/DD")}`;
+export const searchByDateUrl = (date: Dayjs) =>
+  `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${date.format(
+    "YYYY/MM/DD"
+  )}`;

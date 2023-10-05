@@ -10,9 +10,9 @@ import {
 import {
   DEFAULT_RESULTS_SIZE,
   Result,
-  SearchResponse,
-  formatFetchUrl,
+  SearchByDateResponse,
   getYesterday,
+  searchByDateUrl,
 } from "./SearchContext.utils";
 
 type SearchContextType = {
@@ -44,8 +44,8 @@ export const SearchContextProvider = ({ children }: PropsWithChildren<{}>) => {
   const [results, setResults] = useState<Result[]>([]);
 
   const search = async () => {
-    const response = await fetch(formatFetchUrl(date ?? getYesterday()));
-    const { detail, items }: SearchResponse = await response.json();
+    const response = await fetch(searchByDateUrl(date ?? getYesterday()));
+    const { detail, items }: SearchByDateResponse = await response.json();
 
     if (detail) {
       enqueueSnackbar({ message: detail, variant: "error" });
