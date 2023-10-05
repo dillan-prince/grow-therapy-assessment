@@ -1,7 +1,6 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
-import { useSearchContext } from "../context/SearchContext";
 import { black, marigold, neutral } from "../design/colors";
 import { FlexBox } from "../design/styles";
 import {
@@ -19,10 +18,13 @@ export type ArticlePreviewProps = {
 };
 
 const ArticlePreview = ({ index, name, views }: ArticlePreviewProps) => {
-  const { date } = useSearchContext();
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentPreview, setContentPreview] = useState<string>();
   const [viewCountData, setViewCountData] = useState<ViewCountData[]>();
+
+  useEffect(() => {
+    setIsExpanded(false);
+  }, [name]);
 
   useEffect(() => {
     if (!isExpanded) {
@@ -30,9 +32,7 @@ const ArticlePreview = ({ index, name, views }: ArticlePreviewProps) => {
     }
 
     const fetchViewCountData = async () => {
-      const response = await fetch(
-        searchByArticleAndMonthUrl(name, date ?? dayjs())
-      );
+      const response = await fetch(searchByArticleAndMonthUrl(name, dayjs()));
       const data: SearchByArticleAndMonthResponse = await response.json();
 
       setViewCountData(
