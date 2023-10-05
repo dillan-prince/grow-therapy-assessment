@@ -74,6 +74,8 @@ const Pagination = () => {
             padding: "5px",
           },
         }}
+        siblingCount={0}
+        boundaryCount={0}
         count={numPages}
         page={page}
         size="large"

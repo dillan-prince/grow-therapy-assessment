@@ -24,3 +24,7 @@ export const avocado = {
   200: "#ECF1E0",
   300: "#E0E9CB",
 };
+
+export const ivy = {
+  300: "#B3CEC9",
+};

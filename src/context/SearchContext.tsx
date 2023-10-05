@@ -51,6 +51,7 @@ export const SearchContextProvider = ({ children }: PropsWithChildren<{}>) => {
       enqueueSnackbar({ message: detail, variant: "error" });
     } else {
       setResults(items[0].articles);
+      setPage(1);
     }
   };
 
